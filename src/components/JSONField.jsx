@@ -14,6 +14,7 @@ const JSONField = ({sdk, cma, experiments}) => {
   const [availableEntryMappings, setAvailableEntryMappings] = useState(sdk.entry.fields[VARIATIONS_FIELD].getValue())
 
   const setSelections = async (variations, mappings, sdk, setFn) => {
+    if (!mappings) { return }
     const value = variations.map((v, i) => {
       return {
         "variant": v.id,
